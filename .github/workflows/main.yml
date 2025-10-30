@@ -1,0 +1,20 @@
+name: CI básico
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  basic-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Comandos de ejemplo
+        run: |
+          echo "Hola desde GitHub Actions"
+          echo "Evento: ${{ github.event_name }}"
+          echo "Rama:   ${{ github.ref_name }}"
